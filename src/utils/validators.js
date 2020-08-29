@@ -6,31 +6,14 @@ import {
   testRegex,
   toSentence
 } from './helpers'
+import AcceptedValidator from '../validators/AcceptedValidator'
+import AfterValidator from '../validators/AfterValidator'
+import AfterOrEqualValidator from '../validators/AfterOrEqualValidator'
 
 export default {
-  accepted: {
-    message: 'The :attribute must be accepted.',
-    rule: (val) => val === true,
-    required: true
-  },
-  after: {
-    message: 'The :attribute must be after :date.',
-    rule: (val, params) =>
-      // eslint-disable-next-line no-undef
-      canUseMoment() && moment.isMoment(val) && val.isAfter(params[0], 'day'),
-    messageReplace: (message, params) =>
-      message.replace(':date', params[0].format('MM/DD/YYYY'))
-  },
-  after_or_equal: {
-    message: 'The :attribute must be after or on :date.',
-    rule: (val, params) =>
-      canUseMoment() &&
-      // eslint-disable-next-line no-undef
-      moment.isMoment(val) &&
-      val.isSameOrAfter(params[0], 'day'),
-    messageReplace: (message, params) =>
-      message.replace(':date', params[0].format('MM/DD/YYYY'))
-  },
+  accepted: AcceptedValidator,
+  after: AfterValidator,
+  after_or_equal: AfterOrEqualValidator,
   alpha: {
     message: 'The :attribute may only contain letters.',
     rule: (val) => testRegex(val, /^[A-Z]*$/i)

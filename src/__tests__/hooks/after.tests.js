@@ -5,16 +5,14 @@ import { act } from '@testing-library/react'
 
 describe('useValidatedState with after validation', () => {
   let state, errors, setState
-
+  const after = moment('01/01/2020')
+  const now = moment()
   beforeEach(() => {
+    window.moment = moment;
     testHook(() => {
-      const validatedState = useValidatedState(
-        '',
-        [{ after: moment() }],
-        {
-          fieldName: 'testField'
-        }
-      )
+      const validatedState = useValidatedState(now, [{ after }], {
+        fieldName: 'testField'
+      })
       state = validatedState[0]
       errors = validatedState[1]
       setState = validatedState[2]
@@ -22,8 +20,8 @@ describe('useValidatedState with after validation', () => {
   })
 
   it('has no errors when field is set to a date after specified', () => {
-    const afterDate = moment().add(1, 'month')
-    expect(state).toEqual('')
+    const afterDate = moment('03/01/2020')
+    expect(state).toEqual(now)
     expect(errors).toEqual([])
 
     act(() => {
@@ -35,8 +33,8 @@ describe('useValidatedState with after validation', () => {
   })
 
   it('has an error when the field is set to a date before the specified date', () => {
-    const beforeDate = moment().subtract(1, 'month')
-    expect(state).toEqual('')
+    const beforeDate = moment(after).subtract(1, 'month')
+    expect(state).toEqual(now)
     expect(errors).toEqual([])
 
     act(() => {
