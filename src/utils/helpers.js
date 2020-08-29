@@ -1,4 +1,5 @@
 export const passes = (rule, value, params, rules) => {
+  // eslint-disable-next-line no-prototype-builtins
   if (!rules.hasOwnProperty(rule)) {
     return true
   }
@@ -11,6 +12,7 @@ export const passes = (rule, value, params, rules) => {
 }
 
 export const isRequired = (rule, rules) => {
+  // eslint-disable-next-line no-prototype-builtins
   return rules[rule].hasOwnProperty('required') && rules[rule].required
 }
 

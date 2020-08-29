@@ -2,7 +2,7 @@ import { useState } from 'react'
 import validators from '../utils/validators'
 import { getMessage, normalizeValues, passes } from '../utils/helpers'
 
-export default (initialValue, validations, options = { fieldName: ''}) => {
+export default (initialValue, validations, options = { fieldName: '' }) => {
   const [state, setState] = useState(initialValue)
   const [errors, setErrors] = useState([])
 
@@ -19,6 +19,7 @@ export default (initialValue, validations, options = { fieldName: ''}) => {
       if (!passes(rule, value, params, rules)) {
         let message = getMessage(rule, options.fieldName, options, rules)
 
+        // eslint-disable-next-line no-prototype-builtins
         if (params.length > 0 && rules[rule].hasOwnProperty('messageReplace')) {
           message = rules[rule].messageReplace(message, params)
         }

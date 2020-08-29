@@ -1,1 +1,1 @@
-export { default as useValidatedState } from './hooks/useValidatedState';
+export { default as useValidatedState } from './hooks/useValidatedState'

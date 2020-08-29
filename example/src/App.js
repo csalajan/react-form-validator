@@ -1,6 +1,5 @@
 import React from 'react'
 
-import '@teragon/react-form-validator/dist/index.css'
 import { useValidatedState } from "@teragon/react-form-validator";
 
 const App = () => {

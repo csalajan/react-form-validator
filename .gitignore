@@ -1,2 +1,6 @@
 dist/
 **/node_modules/
+example/build
+.idea/
+
+**/yarn-error.log
