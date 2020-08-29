@@ -8,7 +8,7 @@ describe('useValidatedState with after validation', () => {
   const after = moment('01/01/2020')
   const now = moment()
   beforeEach(() => {
-    window.moment = moment;
+    window.moment = moment
     testHook(() => {
       const validatedState = useValidatedState(now, [{ after }], {
         fieldName: 'testField'
