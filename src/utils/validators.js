@@ -5,14 +5,14 @@ import {
   sizeText,
   testRegex,
   toSentence
-} from './helpers'
+} from './helpers';
 import {
   AcceptedValidator,
   AfterOrEqualValidator,
   AfterValidator,
   AlphaSpaceValidator,
   AlphaValidator
-} from '../validators'
+} from '../validators';
 
 export default {
   accepted: AcceptedValidator,
@@ -172,6 +172,7 @@ export default {
   },
   size: {
     message: 'The :attribute must be :size:type.',
+    // eslint-disable-next-line eqeqeq
     rule: (val, params) => size(val, params[1]) == parseFloat(params[0]),
     messageReplace: (message, params) =>
       message.replace(':size', params[0]).replace(':type', sizeText(params[1]))
@@ -194,4 +195,4 @@ export default {
         /^https?:\/\/[-a-z0-9@:%._\+~#=]{1,256}\.[a-z0-9()]{2,6}\b([-a-z0-9()@:%_\+.~#?&//=]*)$/i
       )
   }
-}
+};
