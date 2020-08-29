@@ -5,23 +5,21 @@ import {
   sizeText,
   testRegex,
   toSentence
-} from './helpers'
-import AcceptedValidator from '../validators/AcceptedValidator'
-import AfterValidator from '../validators/AfterValidator'
-import AfterOrEqualValidator from '../validators/AfterOrEqualValidator'
+} from './helpers';
+import {
+  AcceptedValidator,
+  AfterOrEqualValidator,
+  AfterValidator,
+  AlphaSpaceValidator,
+  AlphaValidator
+} from '../validators';
 
 export default {
   accepted: AcceptedValidator,
   after: AfterValidator,
   after_or_equal: AfterOrEqualValidator,
-  alpha: {
-    message: 'The :attribute may only contain letters.',
-    rule: (val) => testRegex(val, /^[A-Z]*$/i)
-  },
-  alpha_space: {
-    message: 'The :attribute may only contain letters and spaces.',
-    rule: (val) => testRegex(val, /^[A-Z\s]*$/i)
-  },
+  alpha: AlphaValidator,
+  alpha_space: AlphaSpaceValidator,
   alpha_num: {
     message: 'The :attribute may only contain letters and numbers.',
     rule: (val) => testRegex(val, /^[A-Z0-9]*$/i)
@@ -174,6 +172,7 @@ export default {
   },
   size: {
     message: 'The :attribute must be :size:type.',
+    // eslint-disable-next-line eqeqeq
     rule: (val, params) => size(val, params[1]) == parseFloat(params[0]),
     messageReplace: (message, params) =>
       message.replace(':size', params[0]).replace(':type', sizeText(params[1]))
@@ -196,4 +195,4 @@ export default {
         /^https?:\/\/[-a-z0-9@:%._\+~#=]{1,256}\.[a-z0-9()]{2,6}\b([-a-z0-9()@:%_\+.~#?&//=]*)$/i
       )
   }
-}
+};
