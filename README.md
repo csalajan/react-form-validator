@@ -2,7 +2,7 @@
 
 > Form Validation library
 
-[![NPM](https://img.shields.io/npm/v/@teragon/react-form-validator.svg)](https://www.npmjs.com/package/@teragon/react-form-validator) [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
+[![NPM](https://img.shields.io/npm/v/@teragon/react-form-validator.svg)](https://www.npmjs.com/package/@teragon/react-form-validator) [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com) ![Node.js Package](https://github.com/csalajan/react-form-validator/workflows/Node.js%20Package/badge.svg)
 
 ## Install
 
