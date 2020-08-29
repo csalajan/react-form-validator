@@ -16,6 +16,7 @@ export default {
   after: {
     message: 'The :attribute must be after :date.',
     rule: (val, params) =>
+      // eslint-disable-next-line no-undef
       canUseMoment() && moment.isMoment(val) && val.isAfter(params[0], 'day'),
     messageReplace: (message, params) =>
       message.replace(':date', params[0].format('MM/DD/YYYY'))
@@ -24,6 +25,7 @@ export default {
     message: 'The :attribute must be after or on :date.',
     rule: (val, params) =>
       canUseMoment() &&
+      // eslint-disable-next-line no-undef
       moment.isMoment(val) &&
       val.isSameOrAfter(params[0], 'day'),
     messageReplace: (message, params) =>
@@ -61,6 +63,7 @@ export default {
   before: {
     message: 'The :attribute must be before :date.',
     rule: (val, params) =>
+      // eslint-disable-next-line no-undef
       canUseMoment() && moment.isMoment(val) && val.isBefore(params[0], 'day'),
     messageReplace: (message, params) =>
       message.replace(':date', params[0].format('MM/DD/YYYY'))
@@ -69,6 +72,7 @@ export default {
     message: 'The :attribute must be before or on :date.',
     rule: (val, params) =>
       canUseMoment() &&
+      // eslint-disable-next-line no-undef
       moment.isMoment(val) &&
       val.isSameOrBefore(params[0], 'day'),
     messageReplace: (message, params) =>
@@ -104,11 +108,13 @@ export default {
   },
   date: {
     message: 'The :attribute must be a date.',
+    // eslint-disable-next-line no-undef
     rule: (val) => canUseMoment() && moment.isMoment(val)
   },
   date_equals: {
     message: 'The :attribute must be on :date.',
     rule: (val, params) =>
+      // eslint-disable-next-line no-undef
       canUseMoment() && moment.isMoment(val) && val.isSame(params[0], 'day'),
     messageReplace: (message, params) =>
       message.replace(':date', params[0].format('MM/DD/YYYY'))
