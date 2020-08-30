@@ -5,7 +5,7 @@ export default ValidatorBuilder(
   'The :attribute must be between :min and :max:type.',
   (val, params) =>
     size(val, params[2]) >= parseFloat(params[0]) &&
-    size(val, params[2]) <= parseFloat(params[2]),
+    size(val, params[2]) <= parseFloat(params[1]),
   (message, params) =>
     message
       .replace(':min', params[0])
