@@ -15,11 +15,7 @@ describe('Alpha Space Validator', () => {
     });
 
     it('is invalid if the value contains dash characters', () => {
-      expect(
-        AlphaSpaceValidator.rule(
-          'some-dashed-text'
-        )
-      ).toBeFalsy();
+      expect(AlphaSpaceValidator.rule('some-dashed-text')).toBeFalsy();
     });
 
     it('is invalid if the value contains numeric', () => {
