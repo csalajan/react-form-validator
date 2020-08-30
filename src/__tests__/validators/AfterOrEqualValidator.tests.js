@@ -2,7 +2,7 @@ import moment from 'moment';
 import { AfterOrEqualValidator } from '../../validators';
 
 describe('After Or Equal Validator', () => {
-  const paramDate = moment('01/01/2020');
+  const paramDate = moment('01/01/2020', 'MM/DD/YYYY');
 
   describe('message', () => {
     it('has the message: "The :attribute must be after or on :date."', () => {
@@ -28,19 +28,25 @@ describe('After Or Equal Validator', () => {
 
     it('should be invalid if the value is before the expected date', () => {
       expect(
-        AfterOrEqualValidator.rule(moment('01/01/2019'), [paramDate])
+        AfterOrEqualValidator.rule(moment('01/01/2019', 'MM/DD/YYYY'), [
+          paramDate
+        ])
       ).toBeFalsy();
     });
 
     it('should be valid if the value is equal to the expected date', () => {
       expect(
-        AfterOrEqualValidator.rule(moment('01/01/2020'), [paramDate])
+        AfterOrEqualValidator.rule(moment('01/01/2020', 'MM/DD/YYYY'), [
+          paramDate
+        ])
       ).toBeTruthy();
     });
 
     it('should be valid if the value is after the expected date', () => {
       expect(
-        AfterOrEqualValidator.rule(moment('01/01/2021'), [paramDate])
+        AfterOrEqualValidator.rule(moment('01/01/2021', 'MM/DD/YYYY'), [
+          paramDate
+        ])
       ).toBeTruthy();
     });
   });

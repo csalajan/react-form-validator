@@ -1,4 +1,4 @@
-import {testRegex} from "../utils/helpers";
+import { testRegex } from '../utils/helpers';
 
 const ValidatorBuilder = (message, rule, messageReplace, required = false) => ({
   message,
@@ -7,9 +7,7 @@ const ValidatorBuilder = (message, rule, messageReplace, required = false) => ({
   required
 });
 
-export const SimpleRegexValidatorBuilder = (message, regex) => ValidatorBuilder(
-  message,
-  (val) => testRegex(val, regex)
-)
+export const SimpleRegexValidatorBuilder = (message, regex) =>
+  ValidatorBuilder(message, (val) => testRegex(val, regex));
 
 export default ValidatorBuilder;
