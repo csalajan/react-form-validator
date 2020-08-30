@@ -1,6 +1,6 @@
 import { SimpleRegexValidatorBuilder } from './ValidatorBuilder';
 
 export default SimpleRegexValidatorBuilder(
-  'The :attribute may only contain letters.',
-  /^[A-Z]*$/i
+  'The :attribute may only contain letters and numbers.',
+  /^[A-Z0-9]*$/i
 );

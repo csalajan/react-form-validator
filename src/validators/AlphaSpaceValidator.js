@@ -1,7 +1,6 @@
-import { testRegex } from '../utils/helpers';
-import ValidatorBuilder from './ValidatorBuilder';
+import { SimpleRegexValidatorBuilder } from './ValidatorBuilder';
 
-export default ValidatorBuilder(
+export default SimpleRegexValidatorBuilder(
   'The :attribute may only contain letters and spaces.',
-  (val) => testRegex(val, /^[A-Z\s]*$/i)
+  /^[A-Z\s]*$/i
 );
