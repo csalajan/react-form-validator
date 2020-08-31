@@ -1,31 +1,17 @@
 import React from 'react'
+import Input from "./Input/Input";
 
-import { useValidatedState } from "@teragon/react-form-validator";
+import styles from './App.module.css';
 
 const App = () => {
-  const [name, nameErrors, setName ] = useValidatedState("", "string|required");
-  const [email, emailErrors, setEmail ] = useValidatedState("", "email|required");
 
   return (
-    <div>
-      <div>
-        <label>Name</label>
-        <input value={name} onChange={event => setName(event.target.value)} />
-        {nameErrors.length > 0 &&
-          nameErrors.map((error, index) => (
-            <p key={index}>{error}</p>
-          ))
-        }
-      </div>
-      <div>
-        <label>Email</label>
-        <input value={email} onChange={event => setEmail(event.target.value)} />
-        {emailErrors.length > 0 &&
-        emailErrors.map((error, index) => (
-          <p key={index}>{error}</p>
-        ))
-        }
-      </div>
+    <div className={styles.container}>
+      <Input validators="alpha" initialValue="" fieldName="Alpha" />
+      <Input validators="alpha" initialValue="" fieldName="Alpha" />
+      <Input validators="alpha" initialValue="" fieldName="Alpha" />
+      <Input validators="alpha" initialValue="" fieldName="Alpha" />
+      <Input validators="alpha" initialValue="" fieldName="Alpha" />
     </div>
   )
 }
