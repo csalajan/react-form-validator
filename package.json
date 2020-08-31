@@ -53,5 +53,12 @@
   },
   "files": [
     "dist"
-  ]
+  ],
+  "jest": {
+    "collectCoverageFrom": [
+      "src/hooks/**/*.js",
+      "src/utils/**/*.js",
+      "src/validators/**/*.js"
+    ]
+  }
 }
